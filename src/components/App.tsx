@@ -2,32 +2,39 @@ import { FC, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { fetchWeather } from '../actions';
-import { IWeatherData, IAction } from '../utils/interfaces'
+import { tempData } from '../actions';
+import { IAction } from '../utils/interfaces'
 import { AppState } from '../utils/types'
+import PageIndexer from './PageIndexer';
+import WeatherList from './WeatherList';
 
 interface IAppProp {
-  weather: IWeatherData | {}
-  fetchWeather: () => void
+  tempData: () => void,
 }
 
 const mapStateToProps = (state: AppState) => ({
-  weather: state.weather
+  temperature: state.temparture,
+  page: state.page
 });
 
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<AppState, {}, IAction>
 ) => ({
-  fetchWeather: bindActionCreators(fetchWeather, dispatch),
+  tempData: bindActionCreators(tempData, dispatch)
 });
 
-const App: FC<IAppProp> = ({ weather, fetchWeather }) => {
-  useEffect(fetchWeather, [fetchWeather]);
+const App: FC<IAppProp> = ({ tempData }) => {
+  useEffect(() => {
+    tempData();
+  }, [tempData]);
 
-  console.log(weather);
-  return (<div>Hi</div>);
+
+  return (
+    <div className="ui container">
+      <PageIndexer />
+      <WeatherList />
+    </div>
+  );
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

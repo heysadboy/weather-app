@@ -1,8 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk, { ThunkMiddleware } from 'redux-thunk';
-import { AppState } from '../utils/types';
+import thunk from 'redux-thunk';
 import reducers from '../reducers';
-import { IAction } from '../utils/interfaces';
 
 
 declare global {
@@ -12,4 +10,4 @@ declare global {
 }
 
 export const componseEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export const store = createStore(reducers, componseEnhancers(applyMiddleware(thunk as ThunkMiddleware<AppState, IAction>)));
+export const store = createStore(reducers, componseEnhancers(applyMiddleware(thunk)));
