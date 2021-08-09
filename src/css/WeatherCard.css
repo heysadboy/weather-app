@@ -1,0 +1,15 @@
+#weather-card {
+    padding: 20px 5px 20px 5px;
+    min-width: 150px;
+}
+
+@media screen and (max-width: 768px) {
+    #weather-card {
+        padding: 0px;
+        min-width: 105px;
+    }
+
+    #calendar-icon {
+        display: none;
+    }
+}

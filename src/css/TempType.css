@@ -1,0 +1,17 @@
+#temp-type-container {
+    padding: 20px 100px 20px 100px;
+}
+
+#f-temp-input {
+    font-size: medium;
+}
+
+#t-temp-input {
+    font-size: medium;
+}
+
+@media screen and (max-width: 768px) {
+    #temp-type-container {
+        padding: 20px 40px 20px 40px;
+    }
+}

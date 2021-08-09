@@ -1,11 +1,11 @@
-import { FC, Fragment } from 'react';
+import { FC } from 'react';
 import { connect } from 'react-redux';
 import { AppState } from '../utils/types'
 import { leftPage, rightPage } from '../actions';
 import { ThunkDispatch } from 'redux-thunk';
 import { bindActionCreators } from 'redux';
 import { IAction } from '../utils/interfaces';
-
+import '../css/PageIndexer.css';
 
 interface IPageIndexerProps {
     leftPage: () => void,
@@ -22,9 +22,9 @@ const mapDispatchToProps = (
 const PageIndexer: FC<IPageIndexerProps> = ({ leftPage, rightPage }) => {
 
     return (
-        <div >
-            <button className="ui right floated button" onClick={() => { rightPage() }} >Right Floated</button>
-            <button className="ui left floated button" onClick={() => { leftPage() }}>Left Floated</button>
+        <div id="page-index-container">
+            <div id="left-button" onClick={() => { leftPage() }}><i className="arrow left big icon" /></div>
+            <div id="right-button" onClick={() => { rightPage() }}><i className="arrow right big icon" /></div>
         </div>
     );
 

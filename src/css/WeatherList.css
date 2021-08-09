@@ -1,0 +1,17 @@
+#weather-list {
+    padding: 30px 0px 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    #weather-list {
+        margin: 0px!important;
+        padding: 30px 0px 0px 0px;
+        min-width: 100vw;
+    }
+
+    #weather-row {
+        margin: 0px;
+        min-width: 100vw;
+    }
+}

@@ -1,19 +1,34 @@
 import { Dispatch } from 'redux';
 import { IAction, IWeather } from '../utils/interfaces';
 import OpenWeather from '../api/OpenWeather';
-import { EActionType } from '../utils/enums';
+import { EActionType, ETempType } from '../utils/enums';
 import { AppState } from '../utils/types';
 import { ThunkDispatch } from 'redux-thunk';
+import { APP_ID } from '../utils/data';
 
+const convertTemp = (temp: number, tempType: ETempType) => {
+    if (tempType === ETempType.f) {
+        let new_temp: number = ((temp * 9 / 5) - 459.67);
+        let conv_temp = Number(new_temp.toFixed(1));
+        return conv_temp;
+    }
+    else {
+        let new_temp: number = temp - 273.15;
+        let conv_temp = Number(new_temp.toFixed(1));
+        return conv_temp;
+    }
+}
 
 export const fetchWeather = () => async (dispatch: Dispatch<IAction>) => {
-    const response = await OpenWeather.get('/data/2.5/forecast?q=Munich,de&APPID=75f972b80e26f14fe6c920aa6a85ad57&cnt=40');
+    const response = await OpenWeather.get(`/data/2.5/forecast?q=Munich,de&APPID=${APP_ID}&cnt=40`);
 
     if (response.status === 200) {
         const weather: IWeather[] = response.data.list.map((item: any) => {
             const weather_item: IWeather = {
                 id: item.dt,
                 temp: item.main.temp,
+                temp_f: convertTemp(item.main.temp, ETempType.f),
+                temp_c: convertTemp(item.main.temp, ETempType.c),
                 dt_txt: item.dt_txt,
             }
             return weather_item;
@@ -51,6 +66,8 @@ export const tempData = () => async (dispatch: ThunkDispatch<AppState, {}, IActi
         const temp_item: IWeather = {
             id: Number(day.split("-").join("")),
             temp: avg_temp,
+            temp_f: convertTemp(avg_temp, ETempType.f),
+            temp_c: convertTemp(avg_temp, ETempType.c),
             dt_txt: day,
         }
         temp_list.push(temp_item)

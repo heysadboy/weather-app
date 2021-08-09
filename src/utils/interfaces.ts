@@ -8,6 +8,8 @@ export interface IAction {
 export interface IWeather {
     id: number,
     temp: number,
+    temp_f: number,
+    temp_c: number,
     dt_txt: string,
 }
 

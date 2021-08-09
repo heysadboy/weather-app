@@ -5,6 +5,6 @@ import weatherReducer from './weatherReducer';
 
 export default combineReducers({
     weather: weatherReducer,
-    temparture: tempDataReducer,
+    temperature: tempDataReducer,
     page: pageReducer
 });

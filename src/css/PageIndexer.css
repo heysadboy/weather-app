@@ -1,0 +1,23 @@
+#page-index-container {
+    padding: 20px;
+}
+
+#left-button {
+    float: left;
+    color: #424242;
+}
+
+#left-button :hover {
+    cursor: pointer;
+    color: #1b1b1b;
+}
+
+#right-button {
+    color: #424242;
+    float: right;
+}
+
+#right-button :hover {
+    cursor: pointer;
+    color: #1b1b1b;
+}

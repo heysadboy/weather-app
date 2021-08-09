@@ -5,3 +5,8 @@ export enum EActionType {
     left_page = 'LEFT_PAGE',
     right_page = 'RIGHT_PAGE'
 }
+
+export enum ETempType {
+    f = "Fahrenheit",
+    c = "Celsius"
+}
