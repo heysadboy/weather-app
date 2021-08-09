@@ -36,7 +36,7 @@ const WeatherList: FC<IWeatherListProp> = ({ page, temperature, tempData }) => {
     });
 
     return (
-        <div className="ui three column divided grid">
+        <div className="ui three column grid">
             <div className="row">
                 {renderedTempList}
             </div>
