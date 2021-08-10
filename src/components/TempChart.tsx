@@ -11,7 +11,8 @@ import { AppState } from "../utils/types";
 
 interface ITempChartProp {
     weather: IWeather[] | [],
-    tempType: ETempType
+    tempType: ETempType,
+    currentDay: string
 }
 
 const mapStateToProps = (state: AppState) => ({
@@ -24,8 +25,7 @@ const mapDispatchToProps = (
     tempData: bindActionCreators(tempData, dispatch)
 });
 
-const TempChart: FC<ITempChartProp> = ({ tempType, weather }) => {
-
+const TempChart: FC<ITempChartProp> = ({ tempType, weather, currentDay }) => {
     const getTempKey = () => {
         if (tempType === ETempType.f) {
             return "temp_f";
@@ -35,15 +35,19 @@ const TempChart: FC<ITempChartProp> = ({ tempType, weather }) => {
         }
     }
 
+    const barData = weather.filter((weather_item) => {
+        return (weather_item.dt_txt === currentDay)
+    });
+
     return (
         <div id="temp-container" className="ui center aligned grid">
-            <BarChart id="temp-chart" width={800} height={500} data={weather.slice(0, 8)}>
+            <BarChart id="temp-chart" width={800} height={500} data={barData}>
                 <XAxis dataKey={getTempKey()} />
                 <Bar dataKey={getTempKey()} fill="#424242" />
             </BarChart>
+
         </div>
     );
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TempChart);

@@ -13,7 +13,9 @@ interface IWeatherListProp {
     temperature: IWeather[],
     page: IPage,
     tempData: () => void,
-    tempType: ETempType
+    tempType: ETempType,
+    setCurrentDay: (currentDay: string) => void,
+    currentDay: string
 }
 
 const mapStateToProps = (state: AppState) => ({
@@ -27,9 +29,9 @@ const mapDispatchToProps = (
     tempData: bindActionCreators(tempData, dispatch)
 });
 
-const WeatherList: FC<IWeatherListProp> = ({ page, temperature, tempType }) => {
+const WeatherList: FC<IWeatherListProp> = ({ page, temperature, tempType, setCurrentDay, currentDay }) => {
     const renderedTempList = temperature.slice(page.start, page.end + 1).map((temp_item) => {
-        return (<WeatherCard key={temp_item.id} tempType={tempType} temp_item={temp_item} />);
+        return (<WeatherCard key={temp_item.id} tempType={tempType} temp_item={temp_item} setCurrentDay={setCurrentDay} currentDay ={currentDay }/>);
     });
 
     return (
@@ -38,7 +40,7 @@ const WeatherList: FC<IWeatherListProp> = ({ page, temperature, tempType }) => {
                 {renderedTempList}
             </div>
         </div>
-    )
+    );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherList);
