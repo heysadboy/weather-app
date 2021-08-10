@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Temp Chart 1`] = `
+<div
+  className="ui center aligned grid"
+  id="temp-container"
+>
+  <div
+    className="recharts-wrapper"
+    style={
+      Object {
+        "cursor": "default",
+        "height": 500,
+        "position": "relative",
+        "width": 800,
+      }
+    }
+  >
+    <svg
+      className="recharts-surface"
+      height={500}
+      id="temp-chart"
+      version="1.1"
+      viewBox="0 0 800 500"
+      width={800}
+    >
+      <defs>
+        <clipPath
+          id="temp-chart-clip"
+        >
+          <rect
+            height={460}
+            width={790}
+            x={5}
+            y={5}
+          />
+        </clipPath>
+      </defs>
+      <g
+        className="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+      >
+        <line
+          className="recharts-cartesian-axis-line"
+          fill="none"
+          height={30}
+          orientation="bottom"
+          stroke="#666"
+          type="category"
+          width={790}
+          x={5}
+          x1={5}
+          x2={795}
+          y={465}
+          y1={465}
+          y2={465}
+        />
+        <g
+          className="recharts-cartesian-axis-ticks"
+        >
+          <g
+            className="recharts-layer recharts-cartesian-axis-tick"
+          >
+            <line
+              className="recharts-cartesian-axis-tick-line"
+              fill="none"
+              height={30}
+              orientation="bottom"
+              stroke="#666"
+              type="category"
+              width={790}
+              x={5}
+              x1={202.5}
+              x2={202.5}
+              y={465}
+              y1={471}
+              y2={465}
+            />
+            <text
+              className="recharts-text recharts-cartesian-axis-tick-value"
+              fill="#666"
+              height={30}
+              orientation="bottom"
+              stroke="none"
+              textAnchor="middle"
+              type="category"
+              width={790}
+              x={202.5}
+              y={473}
+            >
+              <tspan
+                dy="0.71em"
+                x={202.5}
+              >
+                0
+              </tspan>
+            </text>
+          </g>
+          <g
+            className="recharts-layer recharts-cartesian-axis-tick"
+          >
+            <line
+              className="recharts-cartesian-axis-tick-line"
+              fill="none"
+              height={30}
+              orientation="bottom"
+              stroke="#666"
+              type="category"
+              width={790}
+              x={5}
+              x1={597.5}
+              x2={597.5}
+              y={465}
+              y1={471}
+              y2={465}
+            />
+            <text
+              className="recharts-text recharts-cartesian-axis-tick-value"
+              fill="#666"
+              height={30}
+              orientation="bottom"
+              stroke="none"
+              textAnchor="middle"
+              type="category"
+              width={790}
+              x={597.5}
+              y={473}
+            >
+              <tspan
+                dy="0.71em"
+                x={597.5}
+              >
+                auto
+              </tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+`;

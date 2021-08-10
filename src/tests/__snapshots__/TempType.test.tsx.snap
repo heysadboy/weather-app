@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Temp Type 1`] = `
+<div
+  className="ui two column grid"
+  id="temp-type-container"
+>
+  <div
+    className="row grouped fields"
+    onChange={[Function]}
+  >
+    <div
+      className="left algined column field"
+    >
+      <div
+        className="ui radio checkbox"
+        id="f-temp-input"
+      >
+        <input
+          defaultChecked={false}
+          name="temperature-choice"
+          type="radio"
+          value="Fahrenheit"
+        />
+        <label>
+          Fahrenheit
+        </label>
+      </div>
+    </div>
+    <div
+      className="right aligned column field"
+    >
+      <div
+        className="ui radio checkbox"
+        id="t-temp-input"
+      >
+        <input
+          defaultChecked={true}
+          name="temperature-choice"
+          type="radio"
+          value="Celsius"
+        />
+        <label>
+          Celsius
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

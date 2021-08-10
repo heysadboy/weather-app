@@ -31,7 +31,7 @@ const mapDispatchToProps = (
 
 const WeatherList: FC<IWeatherListProp> = ({ page, temperature, tempType, setCurrentDay, currentDay }) => {
     const renderedTempList = temperature.slice(page.start, page.end + 1).map((temp_item) => {
-        return (<WeatherCard key={temp_item.id} tempType={tempType} temp_item={temp_item} setCurrentDay={setCurrentDay} currentDay ={currentDay }/>);
+        return (<WeatherCard key={temp_item.id} tempType={tempType} temp_item={temp_item} setCurrentDay={setCurrentDay} currentDay ={currentDay}/>);
     });
 
     return (

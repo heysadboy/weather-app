@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Weather Card 1`] = `
+<div
+  className="column"
+  id="weather-card-container"
+>
+  <div
+    className="ui centered grey card"
+    id="weather-card"
+    onClick={[Function]}
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        0 °C
+      </div>
+      <div
+        className="description"
+      >
+        <p>
+          <i
+            className="calendar outline icon"
+            id="calendar-icon"
+          />
+          test
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

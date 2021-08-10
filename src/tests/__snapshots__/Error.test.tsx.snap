@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Error 1`] = `
+<div
+  className="ui center aligned container"
+  id="error-container"
+>
+  <div
+    className="ui negative message"
+  >
+    <div
+      className="header"
+    >
+      We're sorry some error occurred
+    </div>
+    <p>
+      Please try again later
+    </p>
+  </div>
+</div>
+`;

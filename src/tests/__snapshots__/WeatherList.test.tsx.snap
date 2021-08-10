@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Weather List 1`] = `
+<div
+  className="ui three column grid container"
+  id="weather-list"
+>
+  <div
+    className="row"
+    id="weather-row"
+  />
+</div>
+`;
