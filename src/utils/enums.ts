@@ -5,6 +5,12 @@ export enum EActionType {
     right_page = 'RIGHT_PAGE'
 }
 
+export enum EStatusType {
+    error = 'ERROR',
+    loading = 'LOADING',
+    ok = 'OK'
+}
+
 export enum ETempType {
     f = "Fahrenheit",
     c = "Celsius"

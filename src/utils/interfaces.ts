@@ -1,8 +1,8 @@
-import { EActionType } from './enums';
+import { EActionType, EStatusType } from './enums';
 
 export interface IAction {
-    type: EActionType,
-    payload: IWeather[] | IWeather | IPage
+    type: EActionType | EStatusType,
+    payload: IWeather[] | IWeather | IPage | IStatus
 }
 
 export interface IWeather {
@@ -17,4 +17,9 @@ export interface IWeather {
 export interface IPage {
     start: number,
     end: number
+}
+
+export interface IStatus {
+    code: EStatusType
+    message: string
 }
