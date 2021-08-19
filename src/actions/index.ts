@@ -1,4 +1,3 @@
-import { Dispatch } from 'redux';
 import { IAction, IStatus, IWeather } from '../utils/interfaces';
 import OpenWeather from '../api/OpenWeather';
 import { EActionType, EStatusType, ETempType } from '../utils/enums';
@@ -20,8 +19,7 @@ const convertTemp = (temp: number, tempType: ETempType) => {
     }
 }
 
-export const fetchWeather = () => async (dispatch: Dispatch<IAction>) => {
-
+const fetchWeather = async (dispatch: ThunkDispatch<AppState, {}, IAction>) => {
     try {
         const response = await OpenWeather.get(`/data/2.5/forecast?q=Munich,de&APPID=${APP_ID}&cnt=40`);
         const weather: IWeather[] = response.data.list.map((item: any) => {
@@ -46,11 +44,10 @@ export const fetchWeather = () => async (dispatch: Dispatch<IAction>) => {
         const errorAction: IAction = { type: EStatusType.error, payload: { code: EStatusType.error, message: exception.message } }
         dispatch(errorAction);
     }
-
 };
 
 export const tempData = () => async (dispatch: ThunkDispatch<AppState, {}, IAction>, getState: () => AppState) => {
-    await dispatch(fetchWeather())
+    await fetchWeather(dispatch);
     const status: IStatus = getState().status;
     if (status.code === EStatusType.ok) {
         const weather = getState().weather as IWeather[];
@@ -76,8 +73,7 @@ export const tempData = () => async (dispatch: ThunkDispatch<AppState, {}, IActi
                 temp: avg_temp,
                 temp_f: convertTemp(avg_temp, ETempType.f),
                 temp_c: convertTemp(avg_temp, ETempType.c),
-                dt_txt: day,
-                tm_txt: day
+                dt_txt: day
             }
             if (cnt < 5) {
                 temp_list.push(temp_item)

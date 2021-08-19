@@ -1,9 +1,6 @@
 import { FC } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { ThunkDispatch } from "redux-thunk";
-import { tempData } from "../actions";
-import { IWeather, IAction, IPage } from "../utils/interfaces";
+import { IWeather, IPage } from "../utils/interfaces";
 import { AppState } from "../utils/types";
 import '../css/WeatherList.css';
 import WeatherCard from "./WeatherCard";
@@ -12,7 +9,6 @@ import { ETempType } from "../utils/enums";
 interface IWeatherListProp {
     temperature: IWeather[],
     page: IPage,
-    tempData: () => void,
     tempType: ETempType,
     setCurrentDay: (currentDay: string) => void,
     currentDay: string
@@ -21,12 +17,6 @@ interface IWeatherListProp {
 const mapStateToProps = (state: AppState) => ({
     temperature: state.temperature,
     page: state.page
-});
-
-const mapDispatchToProps = (
-    dispatch: ThunkDispatch<AppState, {}, IAction>
-) => ({
-    tempData: bindActionCreators(tempData, dispatch)
 });
 
 const WeatherList: FC<IWeatherListProp> = ({ page, temperature, tempType, setCurrentDay, currentDay }) => {
@@ -43,4 +33,4 @@ const WeatherList: FC<IWeatherListProp> = ({ page, temperature, tempType, setCur
     );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherList);
+export default connect(mapStateToProps)(WeatherList);

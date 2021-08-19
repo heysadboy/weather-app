@@ -1,12 +1,9 @@
 import { FC } from "react";
 import { connect } from "react-redux";
 import { BarChart, Bar, XAxis } from "recharts";
-import { bindActionCreators } from "redux";
-import { ThunkDispatch } from "redux-thunk";
-import { tempData } from "../actions";
 import '../css/TempChart.css'
 import { ETempType } from "../utils/enums";
-import { IAction, IWeather } from "../utils/interfaces";
+import { IWeather } from "../utils/interfaces";
 import { AppState } from "../utils/types";
 
 interface ITempChartProp {
@@ -17,12 +14,6 @@ interface ITempChartProp {
 
 const mapStateToProps = (state: AppState) => ({
     weather: state.weather,
-});
-
-const mapDispatchToProps = (
-    dispatch: ThunkDispatch<AppState, {}, IAction>
-) => ({
-    tempData: bindActionCreators(tempData, dispatch)
 });
 
 const TempChart: FC<ITempChartProp> = ({ tempType, weather, currentDay }) => {
@@ -50,4 +41,4 @@ const TempChart: FC<ITempChartProp> = ({ tempType, weather, currentDay }) => {
     );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TempChart);
+export default connect(mapStateToProps)(TempChart);

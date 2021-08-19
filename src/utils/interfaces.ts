@@ -11,7 +11,7 @@ export interface IWeather {
     temp_f: number,
     temp_c: number,
     dt_txt: string,
-    tm_txt: string
+    tm_txt?: string
 }
 
 export interface IPage {
